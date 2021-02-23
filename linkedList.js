@@ -14,6 +14,8 @@ class LinkedList {      // buildling a linked list
 
     }
 
+    /**** INSERTION */
+
     insertFirst(item) {
         this.head = new _Node(item, this.head)
 
@@ -31,6 +33,8 @@ class LinkedList {      // buildling a linked list
         }
     }
 
+    /**** RETRIEVAL */
+
     find(item) {
         let currNode = this.head        //start at the head
         if (!this.head) {
@@ -45,5 +49,28 @@ class LinkedList {      // buildling a linked list
         }
         return currNode;    //when found
     }
+
+    /**** REMOVAL */
+    
+    remove(item) {
+        if (!this.head) {                   // if list is empty return null
+            return null;
+        }
+        if (this.head.value === item) {     // if the item is the head
+            this.head = this.head.next;     // set the head to the next node
+            return;                         // finish the operation
+        }
+        let currNode = this.head;           // track current node
+        let prevNode = this.head;           // tracker for node history
+        while ((currNode !== null) && (currNode.value !== item)) {
+            prevNode = currNode;            // move current node to history
+            currNode = currNode.next;       // move focus to next node
+        }
+        if (currNode === null) {
+            console.log('Item not found');
+            return;
+        }
+    }
+
 
 }
