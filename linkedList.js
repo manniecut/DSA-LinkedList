@@ -22,12 +22,12 @@ class LinkedList {      // buildling a linked list
     }
 
     insertLast(item) {
-        if (this.head === null) {       // if the list is empty add
-            this.insertFirst(item);     // then use the insertFirst function
+        if (this.head === null) {                   // if the list is empty add
+            this.insertFirst(item);                 // then use the insertFirst function
         } else {
-            let tempNode = this.head;           // tempNode (the focus node) starts at the beginning
-            while (tempNode.next !== null) {    // as long as a node follows
-                tempNode = tempNode.next;       // shift tempNode to the next node
+            let tempNode = this.head;               // tempNode (the focus node) starts at the beginning
+            while (tempNode.next !== null) {        // as long as a node follows
+                tempNode = tempNode.next;           // shift tempNode to the next node
             }                                       // when we get to the end
             tempNode.next = new _Node(item, null)   // create a new node .next of tempNode and point it to null (end)
         }
@@ -66,9 +66,9 @@ class LinkedList {      // buildling a linked list
             prevNode = currNode;            // move current node to history
             currNode = currNode.next;       // move focus to next node
         }
-        if (currNode === null) {
-            console.log('Item not found');
-            return;
+        if (currNode === null) {            // node tracker loop finishes null
+            console.log('Item not found');  // log error message    
+            return;                         // finish the operation
         }
     }
 
